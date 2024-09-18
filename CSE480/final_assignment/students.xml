@@ -1,0 +1,36 @@
+<students>
+    <student id="2010140812">
+        <name>Shakil ahmed Shawon</name>
+        <email>Shakil.ahmed.cse@ulab.edu.bd</email>
+        <address>1207, Mohammadpur, Dhaka</address>
+        <contact>01812130287</contact>
+    </student>
+    <student id="2010140095">
+        <name>Jobayer Ahmed</name>
+        <email>Jobayer.ahmed.cse@ulab.edu.bd</email>
+        <address>1207, Mohammadpur, Dhaka</address>
+        <contact>01566280362</contact>
+    </student>
+    <student id="2010140123">
+        <name>Rajib Ahmed</name>
+        <email>Rajib.ahmed.cse@ulab.edu.bd</email>
+        <address>1207, Science Lab, Dhaka</address>
+        <contact>01822280362</contact>
+    </student>
+    <student id="2010140110">
+        <name>Samiya Ahmed</name>
+        <email>Samiya.ahmed.cse@ulab.edu.bd</email>
+        <address>1207, Kolabagan, Dhaka</address>
+        <contact>01365280362</contact>
+    </student>
+    <student id="2010140111">
+        <name>Raihana Ahmed</name>
+        <email>Raihana.ahmed.cse@ulab.edu.bd</email>
+        <address>1208, Dhanmondi, Dhaka</address>
+        <contact>01411280362</contact>
+    </student>
+</students>
+
+
+
+

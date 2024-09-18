@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi</title>
+    <style>
+        .div1,
+        .div2,
+        .div3 {
+            height: 50vh;
+            width: 32.9%;
+            
+            float: left;
+            border: 2px solid orange;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .div4 {
+            
+            clear: left;
+           
+        }
+
+        .btn-primary {
+            background-color: blue;
+            width: 100%;
+            height: 3rem;
+            border-radius: 16px;
+            opacity: 0.6;
+            
+            display: inline-block;
+            text-decoration: none;
+
+        }
+
+        
+
+        .btn-default {
+
+            width: 33%;
+            height: 2rem;
+            background-color:teal;
+            margin-top: 30px;
+            border-radius: 80px;
+
+            opacity: 0.6;
+          
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .flex-parent {
+            display: flex;
+            margin-top:30px ;
+          }
+          
+          .jc-center {
+            justify-content: center;
+          }
+          
+          button.margin-right {
+            margin-right: 70px;
+            background-color: cornflowerblue;
+            height: 4rem;
+            width: 8rem;
+            opacity: 0.6;
+            
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 80px;
+          }
+
+          button.button2{
+            background-color: cornflowerblue;
+            height: 4rem;
+            width: 8rem;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 80px;
+          }
+          
+          body {
+            background-image: url("https://cdn-media-2.freecodecamp.org/w1280/5f9ca6e9740569d1a4ca739a.jpg");
+           
+          }
+        
+        
+    </style>
+</head>
+
+<!-- <body style="background-color: aquamarine;"> -->
+    <body>
+        
+        <h1 style="text-align: center;">Welcome to Tower of Hanoi! </h1>
+        <div class="div1" id="d1">
+    
+            <button type="button"  class="btn btn-large btn-block btn-primary" id="0"onclick="">2</button>
+            <button type="button" class="btn btn-large btn-block btn-primary" id="1"onclick="">4</button>
+            <button type="button" class="btn btn-large btn-block btn-primary" id="2"onclick="">3</button>
+            <button type="button" class="btn btn-large btn-block btn-primary" id="3"onclick="">1</button>
+    
+            
+        </div>
+        <div class="div2" id="d2"></div>
+        <div class="div3" id="d3"></div>
+        <div class="div4"  >
+    
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="oneto2()">1->2</button>
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="twoto3()">2->3</button>
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="threeto1()">3->1</button>
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="threeto2()">3->2</button>
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="twoto1()">2->1</button>
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="oneto3()">1->3</button>
+            </div>
+    
+        <div class="flex-parent jc-center">
+    
+            <button type="button" class="green margin-right" id="reset"  onclick="reset()">Reset</button>
+            <button type="button" class="button2" id="check" onclick="check()">Check 🔔</button>
+        </div>
+
+    <script>
+		
+        const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+              audio.play();
+            });
+          });
+
+    
+    // Select all the tower divs
+    const tower1 = document.getElementById("d1");
+    const tower2 = document.getElementById("d2");
+    const tower3 = document.getElementById("d3");
+
+    let selectedDisk = null;
+
+    // Helper function to move the disk from one tower to another
+    function moveDisk(fromTower, toTower) {
+        // Get the topmost disk in each tower
+        const fromDisk = fromTower.querySelector("button:last-child");
+        const toDisk = toTower.querySelector("button:last-child");
+
+        if (!fromDisk) {
+            alert("No disk to move!");
+            return;
+        }
+
+        if (!toDisk || fromDisk.innerText < toDisk.innerText) {
+            toTower.appendChild(fromDisk);
+        } else {
+            alert("Invalid move! A larger disk cannot be placed on a smaller disk.");
+        }
+    }
+
+    // Functions for buttons to move disks between towers
+    function oneto2() {
+        moveDisk(tower1, tower2);
+    }
+
+    function oneto3() {
+        moveDisk(tower1, tower3);
+    }
+
+    function twoto1() {
+        moveDisk(tower2, tower1);
+    }
+
+    function twoto3() {
+        moveDisk(tower2, tower3);
+    }
+
+    function threeto1() {
+        moveDisk(tower3, tower1);
+    }
+
+    function threeto2() {
+        moveDisk(tower3, tower2);
+    }
+
+    // Reset function to restart the game
+    function reset() {
+        // Move all disks back to tower 1
+        while (tower2.firstChild) {
+            tower1.appendChild(tower2.firstChild);
+        }
+        while (tower3.firstChild) {
+            tower1.appendChild(tower3.firstChild);
+        }
+    }
+
+    // Check if the game is won
+    function check() {
+        if (tower3.children.length === 4) {
+            alert("Congratulations! You have won the Tower of Hanoi!");
+        } else {
+            alert("Keep trying!");
+        }
+    }
+</script>
+
+</body>
+</html>

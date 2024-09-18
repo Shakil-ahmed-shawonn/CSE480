@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+    
+    </header>
+    <h1>Student Information</h1>
+    <input type="text" id="studentId" placeholder="Enter 10-digit Student ID">
+    <button onclick="fetchStudentInfo()">Get Student Info</button>
+   
+    <table id="studentTable" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Contact Number</th>
+    </tr>
+    <tr id="studentData">
+        <td colspan="4">No Data Available</td>
+    </tr>
+</table>
+
+</body>
+</html>
